@@ -2,7 +2,7 @@
 # Matches RecBole's own config format exactly.
 # Run with: python run_recbole.py --config_files configs/Random/ml-100k.yaml
 
-model: Random
+model: Pop
 dataset: ml-100k
 data_path: dataset/
 
