@@ -6,7 +6,6 @@ Run from the repository root:
 Outputs:
     saved/splits/ml-100k.{train,valid,test}.tsv              split (git-ignored)
     run_outputs/Part2/Task2.3/recommendations/*.json         test top-k lists
-    run_outputs/Part2/Task2.3/switching_user_groups.tsv      Switching routing
 """
 
 import glob
@@ -36,10 +35,10 @@ SPLIT_DIR = ROOT / "saved/splits"
 HYBRID_DIR = ROOT / "run_outputs/Part1/Part1.5/best_models"
 BASELINE_DIR = ROOT / "run_outputs/Part1/Part1.1"
 
-HYBRIDS = ["Switching", "Cascade", "FeatureCombination"]
+HYBRIDS = ["Cascade", "FeatureCombination"]
 # Components of the retained hybrids. LightGCN needs a deep list for the
 # Cascade candidate analysis; the evaluator truncates to its own k.
-COMPONENTS = {"EASE": 100, "SLIMElastic": 100, "UserKNN": 100, "LightGCN": 100}
+COMPONENTS = {"LightGCN": 100, "SLIMElastic": 100}
 BASELINES = {"Pop": 100, "Random": 100}
 
 
@@ -108,23 +107,6 @@ def export_hybrids(experiment, rec_dir):
                           experiment.data.config, 10, rec_dir)
 
 
-def export_switching_groups(experiment):
-    state = torch.load(HYBRID_DIR / "Switching.pth", map_location="cpu",
-                       weights_only=True)["fitted_state"]
-    data = experiment.data
-    # Same grouping rule as Part 1.4 switching.py.
-    group = torch.bucketize(data.train_count, state["edges"].to(DEVICE), right=True)
-    users = data.test.users
-    tokens = data.dataset.id2token(data.dataset.uid_field, users.cpu().numpy())
-    path = OUT / "switching_user_groups.tsv"
-    with open(path, "w", encoding="utf-8") as f:
-        f.write("user_id\ttrain_count\tgroup\tmodel\n")
-        for token, uid in zip(tokens, users.tolist()):
-            g = int(group[uid])
-            f.write(f"{token}\t{int(data.train_count[uid])}\t{g}\t{state['best'][g]}\n")
-    print(f"saved Switching groups (edges={state['edges'].tolist()}) -> {path.relative_to(ROOT)}")
-
-
 def export_components(experiment, rec_dir):
     for name, k in COMPONENTS.items():
         scores = experiment.scores[id(experiment.models[name])]
@@ -164,7 +146,6 @@ def main():
     with redirect_stdout(io.StringIO()):
         experiment = Experiment()
     export_hybrids(experiment, rec_dir)
-    export_switching_groups(experiment)
     export_components(experiment, rec_dir)
     export_baselines(experiment, rec_dir)
 
