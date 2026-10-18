@@ -1,9 +1,9 @@
-"""Task 2.5: accuracy and beyond-accuracy per user age group.
+"""Part 2.5: accuracy and beyond-accuracy per user age group.
 
 Run from the repository root, after code/Part2/Task2.3/export_data.py:
-    python code/Part2/Task2.5/group_analysis.py
+    python code/Part2/Part2.5/group_analysis.py
 
-Outputs (run_outputs/Part2/Task2.5/):
+Outputs (run_outputs/Part2/Part2.5/):
     age_group_profile.tsv   per age group: number of users, mean train and test interactions
     per_user.tsv            every model's metrics for every test user, with age group
     age_group_means.tsv     model x age group: mean of each metric
@@ -34,7 +34,7 @@ from evaluation.data import (  # noqa: E402
 REC_DIR = ROOT / "run_outputs/Part2/Task2.3/recommendations"
 SPLIT_DIR = ROOT / "saved/splits"
 DATA_DIR = ROOT / "dataset/ml-100k"
-OUT = ROOT / "run_outputs/Part2/Task2.5"
+OUT = ROOT / "run_outputs/Part2/Part2.5"
 
 K = 10
 CALIBRATION_ALPHA = 0.01
