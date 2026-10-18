@@ -1,0 +1,11 @@
+model	users	recommendations	head_count	mid_count	tail_count	head_percent	mid_percent	tail_percent	unique_items
+Cascade	943	9430	9421	9	0	99.9	0.1	0.0	316
+EASE	943	9430	9416	14	0	99.85	0.15	0.0	357
+FeatureCombination	943	9430	9402	27	1	99.7	0.29	0.01	304
+FeatureCombination_control	943	9430	9403	26	1	99.71	0.28	0.01	296
+LightGCN	943	9430	9405	25	0	99.73	0.27	0.0	226
+Pop	943	9430	9430	0	0	100.0	0.0	0.0	61
+Random	943	9430	3173	2855	3402	33.65	30.28	36.08	61
+SLIMElastic	943	9430	9412	18	0	99.81	0.19	0.0	354
+Switching	943	9430	9420	10	0	99.89	0.11	0.0	336
+UserKNN	943	9430	9422	8	0	99.92	0.08	0.0	293
