@@ -1,0 +1,4 @@
+model,distinct_items,top10_slots,top10_mean_train_popularity,top10_tail_share,top10_head_share,top10_hit_rate
+LightGCN,226,9430,278.1413,0.0,0.9973,0.1595
+SLIMElastic,354,9430,245.4617,0.0,0.9984,0.2198
+Cascade (n=100),316,9430,247.0898,0.0,0.9992,0.2165

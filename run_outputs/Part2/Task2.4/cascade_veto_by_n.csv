@@ -1,0 +1,7 @@
+n_candidates,vetoed_share,vetoed_slots,vetoed_mean_train_popularity,vetoed_tail_share,vetoed_head_share,vetoed_hit_rate,vetoed_median_slim_exposure,introduced_slots,introduced_mean_train_popularity,introduced_tail_share,introduced_head_share,introduced_hit_rate,kept_slots,kept_mean_train_popularity,kept_tail_share,kept_head_share,kept_hit_rate,catalog_items_lost,catalog_items_gained,lost_items_shown_to_one_user_share,catalog_coverage,ndcg@10
+10,0.4846,4570,201.8532,0.0,0.9978,0.1856,43.0,4570,269.286,0.0,0.9956,0.0611,4860,286.4681,0.0,0.999,0.2521,150,22,0.4267,0.1344,0.2634
+20,0.2765,2607,187.8354,0.0,0.9962,0.1799,29,2607,255.8619,0.0,0.9973,0.0806,6823,267.4801,0.0,0.9993,0.2351,107,18,0.5421,0.1576,0.2975
+50,0.0778,734,162.7711,0.0,0.9864,0.1839,17.5,734,237.4687,0.0,0.9959,0.0913,8696,252.4414,0.0,0.9994,0.2229,74,8,0.7162,0.1712,0.3187
+100,0.0224,211,145.09,0.0,0.9573,0.2133,6,211,217.8531,0.0,0.9905,0.0664,9219,247.759,0.0,0.9993,0.22,45,7,0.8222,0.1879,0.3219
+200,0.0059,56,124.1429,0.0,0.8393,0.25,3.0,56,194.625,0.0,0.9821,0.0357,9374,246.1865,0.0,0.9994,0.2197,21,5,0.9048,0.201,0.3248
+500,0.0002,2,57.5,0.0,0.5,0.5,4.0,2,127.0,0.0,0.5,0.0,9428,245.5016,0.0,0.9985,0.2198,1,1,1.0,0.2105,0.3268
